@@ -45,19 +45,19 @@
 
 # #### Números de Ponto Flutuante (`float`)
 # 6. Escreva um programa que receba dois números flutuantes e realize sua adição.
-try:
-    numero_1 = float((input("Digite o primeiro número: ")).replace(",","."))
-    numero_2 = float((input("Digite o segundo número: ")).replace(",","."))
-    print (f"A soma de {numero_1} e {numero_2} é igual a {numero_1 + numero_2}")
-except:
-    print("Insira um número!")
+#?try:
+    #?numero_1 = float((input("Digite o primeiro número: ")).replace(",","."))
+    #?numero_2 = float((input("Digite o segundo número: ")).replace(",","."))
+    #?print (f"A soma de {numero_1} e {numero_2} é igual a {numero_1 + numero_2}")
+#?except:
+    #?print("Insira um número!")
 
 # 7. Crie um programa que calcule a média de dois números flutuantes fornecidos pelo usuário.
-print("Cálculo da media de dois numeros!")
-numero_1 = float((input("Digite o primeiro número: ")).replace(",","."))
-numero_2 = float((input("Digite o segundo número: ")).replace(",","."))
-media = (numero_1 * numero_2) / 2
-print(f"A media é: {media}")
+#?print("Cálculo da media de dois numeros!")
+#?numero_1 = float((input("Digite o primeiro número: ")).replace(",","."))
+#?numero_2 = float((input("Digite o segundo número: ")).replace(",","."))
+#?media = (numero_1 * numero_2) / 2
+#?print(f"A media é: {media}")
 
 # 8. Desenvolva um programa que calcule a potência de um número (base e expoente fornecidos pelo usuário).
 # 9. Faça um programa que converta a temperatura de Celsius para Fahrenheit.
@@ -65,25 +65,49 @@ print(f"A media é: {media}")
 import math
 
 
-raio_do_circulo = float(input("Digite o raio do círculo: "))
-area_circulo = math.pi * raio_do_circulo**2
-print(f"{area_circulo: .2f}")
-print(f"a área do círculo é igual a {area_circulo: .2f}")
+#?raio_do_circulo = float(input("Digite o raio do círculo: "))
+#?area_circulo = math.pi * raio_do_circulo**2
+#?print(f"{area_circulo: .2f}")
+#?print(f"a área do círculo é igual a {area_circulo: .2f}")
 
 # #### Strings (`str`)
 # 11. Escreva um programa que receba uma string do usuário e a converta para maiúsculas.
+try:
+    palavra = input("Digite algo: ")
+
+    if palavra.isalpha():
+        print(palavra.upper())
+    else:
+        print("Digite apenas letras!")
+        
+except:
+    print("Erro!")
 # 12. Crie um programa que receba o nome completo do usuário e imprima o nome com todas as letras minúsculas.
+try:
+    palavra = input("Digite algo: ")
+
+    if palavra.isalpha():
+        print(palavra.lower())
+    else:
+        print("Digite apenas letras!")
+        
+except:
+    print("Erro!")
 # 13. Desenvolva um programa que peça ao usuário para inserir uma frase e, em seguida, imprima esta frase sem espaços em branco no início e no final.
+frase = str(input("Digite uma frase:"))
+print(frase.strip())
 # 14. Faça um programa que peça ao usuário para digitar uma data no formato "dd/mm/aaaa" e, em seguida, imprima o dia, o mês e o ano separadamente.
-#data = str(input("Digite uma data no modelo dd/mm/aaaa: "))
-#dia, mes, ano = data.split("/")
-#print(f"Dia é {dia}")
-#print (f"Mês é {mes}")
-#print (f"Ano é {ano}")
-
-
+data = str(input("Digite uma data no modelo dd/mm/aaaa: "))
+dia, mes, ano = data.split("/")
+print(f"Dia é {dia}")
+print (f"Mês é {mes}")
+print (f"Ano é {ano}")
 
 # 15. Escreva um programa que concatene duas strings fornecidas pelo usuário.
+texto1 = input("Digite a primeira palavra: ")
+texto2 = input("Digite a segunda palavra: ")
+
+print("Resultado:", texto1 + " " + texto2)
 
 # #### Booleanos (`bool`)
 
