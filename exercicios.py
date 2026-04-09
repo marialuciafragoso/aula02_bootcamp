@@ -74,12 +74,10 @@ import math
 # 11. Escreva um programa que receba uma string do usuário e a converta para maiúsculas.
 #?try:
    #? palavra = input("Digite algo: ")
-
     #?if palavra.isalpha():
         #?print(palavra.upper())
    #? else:
        #? print("Digite apenas letras!")
-        
 #?except:
     #?print("Erro!")
 
@@ -91,7 +89,6 @@ import math
     #?    print(palavra.lower())
    #? else:
    #?     print("Digite apenas letras!")
-        
 #?except:
  #?   print("Erro!")
 
@@ -109,48 +106,117 @@ import math
 # 15. Escreva um programa que concatene duas strings fornecidas pelo usuário.
 #? texto1 = input("Digite a primeira palavra: ")
 #? texto2 = input("Digite a segunda palavra: ")
-
 #? print("Resultado:", texto1 + " " + texto2)
+
+
 
 # #### Booleanos (`bool`)
 
 # 16. Escreva um programa que avalie duas expressões booleanas inseridas pelo usuário e retorne o resultado da operação AND entre elas.
-#!Situação de login:
-usuario_correto = input("O usuario esta correto? Digite True(sim) ou False(não): ") == "True"
-senha_correta = input("A senha esta correta? Digite True(sim) ou False(não): ") == "True"
-resultado_and = usuario_correto and senha_correta
-print("Resultado do AND lógico:", resultado_and)
+#?Situação de login:
+#?usuario_correto = input("O usuario esta correto? Digite True(sim) ou False(não): ") == "True"
+#?senha_correta = input("A senha esta correta? Digite True(sim) ou False(não): ") == "True"
+#?resultado_and = (usuario_correto and senha_correta)
+#?print("Resultado do AND lógico:", resultado_and)
 
 # 17. Crie um programa que receba dois valores booleanos do usuário e retorne o resultado da operação OR.
 #! Aceita dinheiro e cartão (pode ser um ou outro)
-dinheiro = input("Você tem dinheiro? Digite True(sim) ou False(não): ") == "True"
-cartao = input("Você tem cartão? Digite True(sim) ou False(não): ") == "True"
-print(dinheiro or cartao)
+#?dinheiro = input("Você tem dinheiro? Digite True(sim) ou False(não): ") == "True"
+#?cartao = input("Você tem cartão? Digite True(sim) ou False(não): ") == "True"
+#?print(dinheiro or cartao)
+
 # 18. Desenvolva um programa que peça ao usuário para inserir um valor booleano e, em seguida, inverta esse valor.
-valor = input("Digite True ou False: ")
-
-valor = valor == "True"
-
-resultado = not valor
-
-print("Resultado:", resultado)
+#?valor = input("Digite True ou False: ")
+#?valor = valor == "True"
+#?resultado = not valor
+#?print("Resultado:", resultado)
 
 # 19. Faça um programa que compare se dois números fornecidos pelo usuário são iguais.
-num1 = input("Digite um número: ")
-num2 = input("Digite outro número: ")
-resultado_igualdade = (num1 == num2)
-print("Resultado da igualdade:", resultado_igualdade)
+#?num1 = input("Digite um número: ")
+#?num2 = input("Digite outro número: ")
+#?resultado_igualdade = (num1 == num2)
+#?print("Resultado da igualdade:", resultado_igualdade)
 
 # 20. Escreva um programa que verifique se dois números fornecidos pelo usuário são diferentes.
-num1 = input("Digite um número: ")
-num2 = input("Digite outro número: ")
-resultado_diferenca = (num1 != num2)
-print("Resultado da diferença:", resultado_diferenca)
+#?num1 = input("Digite um número: ")
+#?num2 = input("Digite outro número: ")
+#?resultado_diferenca = (num1 != num2)
+#?print("Resultado da diferença:", resultado_diferenca)
 
 # #### try-except e if
 
 # 21: Conversor de Temperatura
-# 22: Verificador de Palíndromo
+#! Celcius -> fahrenheit
+try:
+    celsius = float(input("Digite uma temperatura de graus celcius: "))
+    fahrenheit = (celsius * 9/5) + 32 
+    print(f"{celsius}°C é igual a {fahrenheit}°F.")
+except ValueError:
+      print("Por favor, digite um número válido para a temperatura.")
+
+#22: Verificador de Palíndromo
+entrada = input("Digite uma frase ou palavra: ")
+#! Vai barrar números e espaços vazios
+if entrada.replace(" ", "").isalpha():
+     formatado = entrada.replace(" ", "").lower()
+     if formatado == formatado[::-1]:
+          print("A palavra é um palíndromo")
+     else:
+          print("A palavra não é um palíndromo")
+else:
+     print("Digite apenas palavras ou frases!")    
+
 # 23: Calculadora Simples
+#! Com loop:
+rodando = True  
+while rodando:
+    try:
+        num1 = float(input("Digite um número: ").replace(",","."))
+        operacao = input("Digite a operação (adição(+),subtração(-),divisão(/) ou multiplicação(*)): ")
+        num2 = float(input("Digite outro número: ").replace(",","."))
+        if operacao == '+':
+            print(num1 + num2)
+        elif operacao == '-':
+            print(num1 - num2)
+        elif operacao == '*':
+            print(num1 * num2) 
+        elif operacao == '/' and num2 != 0:
+            print(num1 / num2)
+        elif  operacao == '/':
+            print("Error: Divisão por zero.")
+        else: 
+            print("Operador inválido ")
+
+    except ValueError:
+        print("Insira apenas números reais!")
+
+    resposta = input("Quer continuar? (s/n): ").lower()
+    if resposta == 'n':
+        rodando = False  
+
 # 24: Classificador de Números
+try:
+    num = int(input("Digite um número: "))
+    if num > 0:
+        print("O número é positivo")
+    else:
+        print("O número é negativo")    
+    if num % 2 == 0:
+        print("Par")
+    else:
+        print("Ímpar")    
+except:
+    print("Digite um número válido")
+
+
 # 25: Conversão de Tipo com ValidaçãoStrings
+lista = input("Digite uma lista de numeros separada por vírgula: ")
+num_str = lista.split(",")
+num_int = []
+
+try:
+    for numeros in num_str:
+        num_int.append(int(numeros.strip()))
+    print("Lista de inteiros:" , num_int)
+except:
+    print("Erro: certifique-se de que todos os elementos são números inteiros válidos.")
